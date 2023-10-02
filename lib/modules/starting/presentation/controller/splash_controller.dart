@@ -3,10 +3,11 @@ import 'package:news_app/routes/app_routes.dart';
 
 
 class SplashController extends GetxController {
+
   @override
-  void onReady() {
-     Future.delayed(const Duration(milliseconds: 1200), ()=>chooseScreen());
-    super.onReady();
+  void onInit() {
+    super.onInit();
+    Future.delayed(const Duration(seconds: 3), ()=>chooseScreen());
   }
 
   Future chooseScreen() async {

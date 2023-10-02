@@ -1,15 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app/common/custom_app_bar.dart';
+import 'package:news_app/modules/news/presentation/view/view_news_image.dart';
 import 'package:news_app/utils/app_colors.dart';
 import 'package:news_app/utils/app_layout.dart';
 import 'package:news_app/utils/dimensions.dart';
 import '../../../../common/custom_spacer.dart';
 import '../../../../utils/app_style.dart';
 import '../../../../utils/image.dart';
-import '../widgets/dialog_widget.dart';
 
 class NewsDetailsScreen extends StatefulWidget {
   final String? title;
@@ -28,12 +27,13 @@ class _NewsDetailsScreenState extends State<NewsDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:  CustomAppbar(isLeading: true,),
+      appBar: CustomAppbar(
+        isLeading: true,
+      ),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
-
             _imageLayout(context),
             _contentLayout(
                 context: context,
@@ -85,7 +85,7 @@ class _NewsDetailsScreenState extends State<NewsDetailsScreen> {
     return Stack(
       children: [
         GestureDetector(
-          onTap: () => showMyDialog(widget.image, context),
+          onTap: () => navigator(context, widget.image),
           child: SizedBox(
               height: AppLayout.getHeight(380),
               width: MediaQuery.of(context).size.width,
@@ -124,4 +124,14 @@ TextStyle _disTextStyle(context) {
       color: AppColor.normalTextColor,
       fontWeight: FontWeight.w500,
       fontSize: Dimensions.fontSizeDefault);
+}
+
+Future<Object?> navigator(context, image) {
+  return Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ViewImageScreen(
+          image: image,
+        ),
+      ));
 }

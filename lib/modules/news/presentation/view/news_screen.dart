@@ -22,7 +22,7 @@ class NewsScreen extends GetView<NewsController> {
   Widget build(BuildContext context) {
     controller.getNewsApi();
     return Scaffold(
-      appBar:  CustomAppbar(),
+      appBar: CustomAppbar(),
       backgroundColor: AppColor.backgroundColor,
       body: RefreshIndicator(
         onRefresh: _refreshPage,
@@ -195,7 +195,7 @@ class NewsScreen extends GetView<NewsController> {
           Text(
             '$title',
             style: GoogleFonts.poppins(
-                fontSize: Dimensions.fontSizeExtraDefault +1,
+                fontSize: Dimensions.fontSizeExtraDefault + 1,
                 fontWeight: FontWeight.w500,
                 color: AppColor.normalTextColor),
           ),
@@ -206,7 +206,7 @@ class NewsScreen extends GetView<NewsController> {
     );
   }
 
-  Future<void> _refreshPage()async {
-  await  controller.getNewsApi();
+  Future<void> _refreshPage() async {
+    await controller.getNewsApi();
   }
 }

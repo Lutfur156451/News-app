@@ -2,11 +2,14 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:news_app/modules/notification/presentation/view/notification.dart';
+import 'package:news_app/modules/setting/presentation/view/setting_page.dart';
 
 import '../../../../utils/app_colors.dart';
 import '../../../../utils/app_strings.dart';
 import '../../../../utils/dimensions.dart';
 import '../../../news/presentation/view/news_screen.dart';
+import '../../../search/presentation/view/search_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -19,9 +22,9 @@ class _HomeState extends State<MainScreen> {
   int _currentIndex = 0;
   final _screens = <Widget>[
      const NewsScreen(),
-     Container(),
-     Container(),
-     Container(),
+    const SearchScreen(),
+     const NotificationScreen(),
+    const SettingScreen(),
 
   ];
 

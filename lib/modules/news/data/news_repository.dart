@@ -10,11 +10,12 @@ class NewsRepository{
 
   NewsRepository(this.networkClient);
 
-  Future<NewsModel> newsGetRepository() async {
+  Future<NewsModel> newsGetRepository(date) async {
+
     try {
       var queryParams = {
         "q": "tesla",
-        "from": "2023-09-01",
+        "from": "$date",
         "sortBy": "publishedAt",
         "apiKey": API.NEWS_EVERYTHING,
       };
